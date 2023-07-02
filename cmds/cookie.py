@@ -16,13 +16,13 @@ class Cookies(Cog_Extension):
 
     @commands.command()
     async def buycookies(self, ctx):
-        await ctx.send("要買餅乾嗎？(是/否)")
+        await ctx.send("要買餅乾嗎？(yes/no)")
         # 當輸入"$buycookies"開始後，先詢問是否要買餅乾，並提示輸入內容
 
         try:
             msg = await ctx.bot.wait_for('message', timeout=30)
             # 給30秒的時間回覆
-            if msg.content == '是':
+            if msg.content == 'yes':
             # 若回傳"是"，則接著問口味 數量...etc.
                 await ctx.send("要甚麼口味？有牛奶、起司、藍藻和紫菜")
                 flavor = await ctx.bot.wait_for('message', timeout=30)
